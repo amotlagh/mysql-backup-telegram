@@ -25,7 +25,7 @@ sudo apt update && sudo apt install curl -y
 2. **Download the script**:
 
 ```bash
-curl -o mysql_backup_telegram.sh https://raw.githubusercontent.com/drhdev/mysql-backup-telegram/main/mysql_backup_telegram.sh
+curl -o mysql_backup_telegram.sh https://raw.githubusercontent.com/amotlagh/mysql-backup-telegram/main/mysql_backup_telegram.sh
 ```
 
 3. **Make the script executable**:
@@ -43,8 +43,6 @@ Before using the script, configure the following parameters inside the `mysql_ba
 - `dbpass`: Your MySQL database password.
 - `dump_path`: Path to store the backup files.
 - `max_backups`: Maximum number of backup files to retain.
-- `log_path`: Path to store the log files.
-- `max_logs`: Maximum number of log files to retain.
 - `telegram_token`: Your Telegram bot token.
 - `telegram_chat_id`: Your Telegram chat ID.
 
