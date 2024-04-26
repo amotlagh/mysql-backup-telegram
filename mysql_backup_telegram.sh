@@ -47,17 +47,13 @@ else
 fi
 
 # Send Telegram Message
-send_telegram_message() {
-    local message=$1
-    curl -s -X POST "https://api.telegram.org/bot${telegram_token}/sendMessage" -d chat_id="${telegram_chat_id}" -d text="${message}" -d parse_mode="Markdown"
-}
-
 send_telegram_document() {
     local filepath=$1
-    curl -s -F chat_id="${telegram_chat_id}" -F document=@"${filepath}" "https://api.telegram.org/bot${telegram_token}/sendDocument"
+    local caption=$2
+    curl -s -F chat_id="${telegram_chat_id}" -F document=@"${filepath}" -F caption="${caption}" "https://api.telegram.org/bot${telegram_token}/sendDocument"
 }
 
-send_telegram_message "Backup of ${dbname} on ${server_name} was successful."
-send_telegram_document "${dump_file}"
+# Sending backup file to Telegram with a caption
+send_telegram_document "${dump_file}" "Backup of ${dbname} on ${server_name}"
 
 echo "Script completed."
