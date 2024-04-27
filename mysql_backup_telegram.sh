@@ -56,4 +56,7 @@ send_telegram_document() {
 # Sending backup file to Telegram with a caption
 send_telegram_document "${dump_file}" "Backup of ${dbname} on ${server_name}"
 
+# Delele the backup after sending it to Telegram
+rm "${dump_file}"
+
 echo "Script completed."
